@@ -5,28 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer Club - Home</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-brand">
-            <i class="fas fa-futbol"></i>
-            <span>Soccer Club</span>
-        </div>
-        <div class="nav-links">
-            <a href="/main.html" class="active"><i class="fas fa-home"></i> Home</a>
-            <a href="/team.html"><i class="fas fa-users"></i> Team</a>
-            <a href="/players.html"><i class="fas fa-user"></i> Players</a>
-        </div>
-        <div class="nav-profile" id="profileBtn">
-            <div class="profile-icon">
-                <i class="fas fa-user"></i>
+    <!-- Enhanced Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/main.html" class="nav-brand">
+                <i class="fas fa-futbol"></i>
+                <span>Soccer Club</span>
+            </a>
+            <div class="nav-links">
+                <a href="/main.html" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/team.html">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/players.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Players</span>
+                </a>
+            </div>
+            <div class="nav-profile" id="profileBtn">
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Profile Modal -->
+    <!-- Enhanced Profile Modal -->
     <div class="profile-modal" id="profileModal">
         <div class="profile-content">
             <div class="profile-header">
@@ -65,13 +76,14 @@
                     </div>
                 </div>
                 <button class="logout-btn" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Token Modal -->
+    <!-- Enhanced Token Modal -->
     <div class="token-modal" id="tokenModal">
         <div class="token-content">
             <div class="token-header">
@@ -84,44 +96,134 @@
                 <div class="token-display">
                     <code id="tokenText"></code>
                 </div>
-                <button class="copy-btn" id="copyTokenBtn">
-                    <i class="fas fa-copy"></i> Copy Token
+                <button class="copy-btn btn-primary" id="copyTokenBtn">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy Token</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Enhanced Main Content -->
     <main class="main-content">
+        <!-- Enhanced Hero Section -->
         <section class="hero-section">
-            <h1>Welcome to Soccer Club</h1>
-            <p>Your journey to soccer excellence starts here</p>
+            <div class="container">
+                <h1>Welcome to Soccer Club</h1>
+                <p>Your journey to soccer excellence starts here. Join our community of passionate players and achieve greatness together.</p>
+            </div>
         </section>
 
+        <!-- Enhanced Features Section -->
         <section class="features">
-            <div class="feature-card">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Upcoming Matches</h3>
-                <p>View and register for upcoming matches</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Match Schedule</h3>
+                    <p>Stay updated with upcoming matches, training sessions, and important events. Never miss a game with our comprehensive calendar system.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Performance Analytics</h3>
+                    <p>Track your progress with detailed statistics and performance metrics. Analyze your game and identify areas for improvement.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Tournaments</h3>
+                    <p>Participate in exciting tournaments and competitions. Showcase your skills and compete against the best teams in the league.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Training Programs</h3>
+                    <p>Access professional training programs designed to enhance your skills. From beginner to advanced levels, we have it all.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Team Management</h3>
+                    <p>Efficient team organization and communication tools. Coordinate with teammates and coaches seamlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Achievements</h3>
+                    <p>Celebrate your victories and milestones. Track team achievements and individual accomplishments throughout the season.</p>
+                </div>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-users"></i>
-                <h3>Team Stats</h3>
-                <p>Check your team's performance</p>
+        </section>
+
+        <!-- Quick Stats Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Club Statistics</h2>
+                <p>Our impressive numbers speak for themselves</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-trophy"></i>
-                <h3>Tournaments</h3>
-                <p>Join exciting tournaments</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Active Players</h3>
+                    <div class="stat">150+</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Championships Won</h3>
+                    <div class="stat">12</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Years of Excellence</h3>
+                    <div class="stat">25</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Professional Coaches</h3>
+                    <div class="stat">8</div>
+                </div>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-running"></i>
-                <h3>Training</h3>
-                <p>Access training schedules</p>
+        </section>
+
+        <!-- Recent News Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Latest News</h2>
+                <p>Stay updated with the latest happenings in our club</p>
+            </div>
+            <div class="card-grid">
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Championship Victory">
+                    <div class="card-content">
+                        <h3>Championship Victory!</h3>
+                        <p>Our team secured a thrilling 3-2 victory in the regional championship final, marking our third consecutive title win.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 2 days ago</span>
+                            <span><i class="fas fa-eye"></i> 1.2k views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=800" alt="New Training Facility">
+                    <div class="card-content">
+                        <h3>New Training Facility</h3>
+                        <p>We're excited to announce the opening of our state-of-the-art training facility with modern equipment and professional-grade pitches.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 1 week ago</span>
+                            <span><i class="fas fa-eye"></i> 856 views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Youth Academy">
+                    <div class="card-content">
+                        <h3>Youth Academy Launch</h3>
+                        <p>Introducing our new youth academy program designed to nurture young talent and develop the next generation of soccer stars.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-calendar"></i> 2 weeks ago</span>
+                            <span><i class="fas fa-eye"></i> 2.1k views</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <script src="main.js"></script>
 </body>
-</html> 
+</html>
