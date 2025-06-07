@@ -5,28 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer Club - Players</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-brand">
-            <i class="fas fa-futbol"></i>
-            <span>Soccer Club</span>
-        </div>
-        <div class="nav-links">
-            <a href="main.html"><i class="fas fa-home"></i> Home</a>
-            <a href="team.html"><i class="fas fa-users"></i> Team</a>
-            <a href="players.html" class="active"><i class="fas fa-user"></i> Players</a>
-        </div>
-        <div class="nav-profile" id="profileBtn">
-            <div class="profile-icon">
-                <i class="fas fa-user"></i>
+    <!-- Enhanced Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/main.html" class="nav-brand">
+                <i class="fas fa-futbol"></i>
+                <span>Soccer Club</span>
+            </a>
+            <div class="nav-links">
+                <a href="/main.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/team.html">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/players.html" class="active">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Players</span>
+                </a>
+            </div>
+            <div class="nav-profile" id="profileBtn">
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Profile Modal -->
+    <!-- Enhanced Profile Modal -->
     <div class="profile-modal" id="profileModal">
         <div class="profile-content">
             <div class="profile-header">
@@ -56,151 +67,290 @@
                     <p id="playerJoined">Loading...</p>
                 </div>
                 <button class="logout-btn" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Enhanced Main Content -->
     <main class="main-content">
-        <section class="players-header">
-            <h1>Team Players</h1>
-            <p>Meet our talented squad members</p>
-        </section>
-
-        <section class="player-filters">
-            <div class="filter-group">
-                <label>Position:</label>
-                <select id="positionFilter">
-                    <option value="all">All Positions</option>
-                    <option value="forward">Forwards</option>
-                    <option value="midfielder">Midfielders</option>
-                    <option value="defender">Defenders</option>
-                    <option value="goalkeeper">Goalkeepers</option>
-                </select>
-            </div>
-            <div class="search-group">
-                <input type="text" id="playerSearch" placeholder="Search players...">
-                <button><i class="fas fa-search"></i></button>
+        <!-- Enhanced Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Team Players</h1>
+                <p>Meet our talented squad members and rising stars</p>
             </div>
         </section>
 
-        <section class="players-grid">
-            <!-- Forward Players -->
-            <div class="position-group">
+        <!-- Enhanced Player Filters -->
+        <div class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label>Position:</label>
+                    <select id="positionFilter">
+                        <option value="all">All Positions</option>
+                        <option value="forward">Forwards</option>
+                        <option value="midfielder">Midfielders</option>
+                        <option value="defender">Defenders</option>
+                        <option value="goalkeeper">Goalkeepers</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="playerSearch" placeholder="Search players by name...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Players Grid -->
+        <section class="content-section">
+            <!-- Forwards Section -->
+            <div class="section-title">
                 <h2>Forwards</h2>
-                <div class="players-row">
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 1">
-                        <div class="player-info">
-                            <h3>Marcus Johnson</h3>
-                            <p class="position">Striker</p>
-                            <p class="number">#9</p>
-                            <div class="stats">
-                                <span><i class="fas fa-futbol"></i> 15</span>
-                                <span><i class="fas fa-shoe-prints"></i> 7</span>
-                            </div>
+                <p>Our attacking force leading the charge</p>
+            </div>
+            <div class="card-grid">
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Marcus Johnson">
+                    <div class="player-info">
+                        <h3>Marcus Johnson</h3>
+                        <p class="position">Striker</p>
+                        <p class="number">#9</p>
+                        <div class="stats">
+                            <span><i class="fas fa-futbol"></i> 18 Goals</span>
+                            <span><i class="fas fa-shoe-prints"></i> 7 Assists</span>
                         </div>
                     </div>
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 2">
-                        <div class="player-info">
-                            <h3>Alex Thompson</h3>
-                            <p class="position">Winger</p>
-                            <p class="number">#11</p>
-                            <div class="stats">
-                                <span><i class="fas fa-futbol"></i> 8</span>
-                                <span><i class="fas fa-shoe-prints"></i> 12</span>
-                            </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Alex Thompson">
+                    <div class="player-info">
+                        <h3>Alex Thompson</h3>
+                        <p class="position">Right Winger</p>
+                        <p class="number">#11</p>
+                        <div class="stats">
+                            <span><i class="fas fa-futbol"></i> 12 Goals</span>
+                            <span><i class="fas fa-shoe-prints"></i> 15 Assists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Carlos Rodriguez">
+                    <div class="player-info">
+                        <h3>Carlos Rodriguez</h3>
+                        <p class="position">Left Winger</p>
+                        <p class="number">#7</p>
+                        <div class="stats">
+                            <span><i class="fas fa-futbol"></i> 10 Goals</span>
+                            <span><i class="fas fa-shoe-prints"></i> 12 Assists</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Midfielder Players -->
-            <div class="position-group">
+            <!-- Midfielders Section -->
+            <div class="section-title" style="margin-top: 4rem;">
                 <h2>Midfielders</h2>
-                <div class="players-row">
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 3">
-                        <div class="player-info">
-                            <h3>David Silva</h3>
-                            <p class="position">Central Midfielder</p>
-                            <p class="number">#8</p>
-                            <div class="stats">
-                                <span><i class="fas fa-futbol"></i> 5</span>
-                                <span><i class="fas fa-shoe-prints"></i> 15</span>
-                            </div>
+                <p>The engine room controlling the game</p>
+            </div>
+            <div class="card-grid">
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=800" alt="David Silva">
+                    <div class="player-info">
+                        <h3>David Silva</h3>
+                        <p class="position">Central Midfielder</p>
+                        <p class="number">#8</p>
+                        <div class="stats">
+                            <span><i class="fas fa-futbol"></i> 6 Goals</span>
+                            <span><i class="fas fa-shoe-prints"></i> 18 Assists</span>
                         </div>
                     </div>
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 4">
-                        <div class="player-info">
-                            <h3>James Rodriguez</h3>
-                            <p class="position">Attacking Midfielder</p>
-                            <p class="number">#10</p>
-                            <div class="stats">
-                                <span><i class="fas fa-futbol"></i> 7</span>
-                                <span><i class="fas fa-shoe-prints"></i> 10</span>
-                            </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=800" alt="James Rodriguez">
+                    <div class="player-info">
+                        <h3>James Rodriguez</h3>
+                        <p class="position">Attacking Midfielder</p>
+                        <p class="number">#10</p>
+                        <div class="stats">
+                            <span><i class="fas fa-futbol"></i> 9 Goals</span>
+                            <span><i class="fas fa-shoe-prints"></i> 14 Assists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Michael Chen">
+                    <div class="player-info">
+                        <h3>Michael Chen</h3>
+                        <p class="position">Defensive Midfielder</p>
+                        <p class="number">#6</p>
+                        <div class="stats">
+                            <span><i class="fas fa-shield-alt"></i> 45 Tackles</span>
+                            <span><i class="fas fa-futbol"></i> 3 Goals</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Defender Players -->
-            <div class="position-group">
+            <!-- Defenders Section -->
+            <div class="section-title" style="margin-top: 4rem;">
                 <h2>Defenders</h2>
-                <div class="players-row">
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 5">
-                        <div class="player-info">
-                            <h3>John Terry</h3>
-                            <p class="position">Center Back</p>
-                            <p class="number">#4</p>
-                            <div class="stats">
-                                <span><i class="fas fa-shield-alt"></i> 25</span>
-                                <span><i class="fas fa-futbol"></i> 2</span>
-                            </div>
+                <p>Our solid defensive foundation</p>
+            </div>
+            <div class="card-grid">
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="John Terry">
+                    <div class="player-info">
+                        <h3>John Terry</h3>
+                        <p class="position">Center Back</p>
+                        <p class="number">#4</p>
+                        <div class="stats">
+                            <span><i class="fas fa-shield-alt"></i> 38 Clearances</span>
+                            <span><i class="fas fa-futbol"></i> 4 Goals</span>
                         </div>
                     </div>
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 6">
-                        <div class="player-info">
-                            <h3>Roberto Carlos</h3>
-                            <p class="position">Left Back</p>
-                            <p class="number">#3</p>
-                            <div class="stats">
-                                <span><i class="fas fa-shield-alt"></i> 20</span>
-                                <span><i class="fas fa-futbol"></i> 3</span>
-                            </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Roberto Carlos">
+                    <div class="player-info">
+                        <h3>Roberto Carlos</h3>
+                        <p class="position">Left Back</p>
+                        <p class="number">#3</p>
+                        <div class="stats">
+                            <span><i class="fas fa-shield-alt"></i> 28 Tackles</span>
+                            <span><i class="fas fa-shoe-prints"></i> 8 Assists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kyle Walker">
+                    <div class="player-info">
+                        <h3>Kyle Walker</h3>
+                        <p class="position">Right Back</p>
+                        <p class="number">#2</p>
+                        <div class="stats">
+                            <span><i class="fas fa-shield-alt"></i> 32 Tackles</span>
+                            <span><i class="fas fa-shoe-prints"></i> 6 Assists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Virgil van Dijk">
+                    <div class="player-info">
+                        <h3>Virgil van Dijk</h3>
+                        <p class="position">Center Back</p>
+                        <p class="number">#5</p>
+                        <div class="stats">
+                            <span><i class="fas fa-shield-alt"></i> 42 Clearances</span>
+                            <span><i class="fas fa-futbol"></i> 3 Goals</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Goalkeeper -->
-            <div class="position-group">
+            <!-- Goalkeepers Section -->
+            <div class="section-title" style="margin-top: 4rem;">
                 <h2>Goalkeepers</h2>
-                <div class="players-row">
-                    <div class="player-card">
-                        <img src="https://placehold.co/200x200" alt="Player 7">
-                        <div class="player-info">
-                            <h3>Peter Schmeichel</h3>
-                            <p class="position">Goalkeeper</p>
-                            <p class="number">#1</p>
-                            <div class="stats">
-                                <span><i class="fas fa-hand-paper"></i> 8</span>
-                                <span><i class="fas fa-times"></i> 34</span>
-                            </div>
+                <p>Our last line of defense</p>
+            </div>
+            <div class="card-grid">
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Peter Schmeichel">
+                    <div class="player-info">
+                        <h3>Peter Schmeichel</h3>
+                        <p class="position">Goalkeeper</p>
+                        <p class="number">#1</p>
+                        <div class="stats">
+                            <span><i class="fas fa-hand-paper"></i> 12 Clean Sheets</span>
+                            <span><i class="fas fa-save"></i> 89% Save Rate</span>
                         </div>
                     </div>
+                </div>
+                <div class="player-card">
+                    <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Manuel Neuer">
+                    <div class="player-info">
+                        <h3>Manuel Neuer</h3>
+                        <p class="position">Goalkeeper</p>
+                        <p class="number">#12</p>
+                        <div class="stats">
+                            <span><i class="fas fa-hand-paper"></i> 8 Clean Sheets</span>
+                            <span><i class="fas fa-save"></i> 85% Save Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Player Stats Summary -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Squad Statistics</h2>
+                <p>Overall team performance metrics</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Squad Size</h3>
+                    <div class="stat">25</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h3>Average Age</h3>
+                    <div class="stat">24.5</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Nationalities</h3>
+                    <div class="stat">12</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Goals This Season</h3>
+                    <div class="stat">47</div>
                 </div>
             </div>
         </section>
     </main>
 
     <script src="main.js"></script>
+    <script>
+        // Enhanced player filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const positionFilter = document.getElementById('positionFilter');
+            const searchInput = document.getElementById('playerSearch');
+            const playerCards = document.querySelectorAll('.player-card');
+
+            function filterPlayers() {
+                const selectedPosition = positionFilter.value.toLowerCase();
+                const searchTerm = searchInput.value.toLowerCase();
+
+                playerCards.forEach(card => {
+                    const playerName = card.querySelector('h3').textContent.toLowerCase();
+                    const playerPosition = card.querySelector('.position').textContent.toLowerCase();
+                    
+                    const matchesPosition = selectedPosition === 'all' || 
+                        playerPosition.includes(selectedPosition) ||
+                        (selectedPosition === 'forward' && (playerPosition.includes('striker') || playerPosition.includes('winger'))) ||
+                        (selectedPosition === 'midfielder' && playerPosition.includes('midfielder')) ||
+                        (selectedPosition === 'defender' && (playerPosition.includes('back') || playerPosition.includes('defender'))) ||
+                        (selectedPosition === 'goalkeeper' && playerPosition.includes('goalkeeper'));
+                    
+                    const matchesSearch = playerName.includes(searchTerm);
+                    
+                    if (matchesPosition && matchesSearch) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            positionFilter.addEventListener('change', filterPlayers);
+            searchInput.addEventListener('input', filterPlayers);
+        });
+    </script>
 </body>
-</html> 
+</html>

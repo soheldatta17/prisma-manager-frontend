@@ -1,8 +1,11 @@
+// Enhanced main.js with improved animations and interactions
+
 // Get DOM elements
 const profileBtn = document.getElementById('profileBtn');
 const profileModal = document.getElementById('profileModal');
 const closeProfile = document.getElementById('closeProfile');
 const logoutBtn = document.getElementById('logoutBtn');
+const navbar = document.getElementById('navbar');
 
 // Profile info elements
 const playerName = document.getElementById('playerName');
@@ -16,6 +19,17 @@ const tokenModal = document.getElementById('tokenModal');
 const closeToken = document.getElementById('closeToken');
 const tokenText = document.getElementById('tokenText');
 const copyTokenBtn = document.getElementById('copyTokenBtn');
+
+// Enhanced navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+});
 
 // Cookie handling function
 function getCookie(name) {
@@ -35,7 +49,7 @@ function getCookie(name) {
     return null;
 }
 
-// Format date function
+// Enhanced date formatting function
 function formatDate(dateString) {
     const options = { 
         year: 'numeric', 
@@ -66,95 +80,127 @@ function loadUserData() {
 
     // Update welcome message if it exists
     const welcomeMessage = document.querySelector('.hero-section h1');
-    if (welcomeMessage) {
-        welcomeMessage.textContent = `Welcome, ${userData.name}!`;
+    if (welcomeMessage && welcomeMessage.textContent.includes('Welcome to Soccer Club')) {
+        welcomeMessage.textContent = `Welcome back, ${userData.name}!`;
     }
 }
 
-// Handle logout
+// Enhanced logout function
 function logout() {
-    // Delete the cookie
-    document.cookie = 'user_data=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
-    // Redirect to login page
-    window.location.href = 'index.html';
+    // Show confirmation with custom styling
+    if (confirm('Are you sure you want to logout?')) {
+        // Delete the cookie
+        document.cookie = 'user_data=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+        
+        // Show logout message
+        showMessage('Successfully logged out. See you soon!', 'success');
+        
+        // Redirect after a short delay
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1500);
+    }
+}
+
+// Enhanced modal functions
+function showModal(modal) {
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Focus trap for accessibility
+    const focusableElements = modal.querySelectorAll('button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusableElements.length > 0) {
+        focusableElements[0].focus();
+    }
+}
+
+function hideModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
 }
 
 // Token Modal Functions
 function showTokenModal() {
-    if (!tokenModal) return;
-    tokenModal.classList.add('active');
-    const content = tokenModal.querySelector('.token-content');
-    if (content) {
-        content.style.opacity = '1';
-        content.style.transform = 'translateY(0)';
-    }
+    showModal(tokenModal);
 }
 
 function hideTokenModal() {
-    if (!tokenModal) return;
-    const content = tokenModal.querySelector('.token-content');
-    if (content) {
-        content.style.opacity = '0';
-        content.style.transform = 'translateY(-20px)';
-    }
-    setTimeout(() => {
-        tokenModal.classList.remove('active');
-    }, 300);
+    hideModal(tokenModal);
 }
 
+// Enhanced copy token function
 async function copyToken() {
     if (!tokenText || !copyTokenBtn) return;
     try {
         await navigator.clipboard.writeText(tokenText.textContent);
         copyTokenBtn.classList.add('copied');
-        copyTokenBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyTokenBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+        
+        // Show success message
+        showMessage('Token copied to clipboard!', 'success');
+        
         setTimeout(() => {
             copyTokenBtn.classList.remove('copied');
-            copyTokenBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Token';
+            copyTokenBtn.innerHTML = '<i class="fas fa-copy"></i><span>Copy Token</span>';
         }, 2000);
     } catch (err) {
         console.error('Failed to copy token:', err);
-        alert('Failed to copy token to clipboard');
+        showMessage('Failed to copy token to clipboard', 'error');
     }
+}
+
+// Enhanced message display function
+function showMessage(message, type = 'success') {
+    // Remove existing messages
+    const existingMessages = document.querySelectorAll('.message');
+    existingMessages.forEach(msg => msg.remove());
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    
+    const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+    messageDiv.innerHTML = `
+        <i class="${icon}"></i>
+        <span>${message}</span>
+    `;
+    
+    document.body.appendChild(messageDiv);
+
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        messageDiv.classList.add('fade-out');
+        setTimeout(() => {
+            if (messageDiv.parentNode) {
+                messageDiv.remove();
+            }
+        }, 300);
+    }, 4000);
 }
 
 // Event Listeners - Only add if elements exist
 if (profileBtn && profileModal) {
-    profileBtn.addEventListener('click', () => {
-        profileModal.classList.add('active');
-        const content = profileModal.querySelector('.profile-content');
-        if (content) {
-            content.style.opacity = '1';
-            content.style.transform = 'translateY(0)';
-        }
+    profileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showModal(profileModal);
     });
 }
 
 if (closeProfile && profileModal) {
     closeProfile.addEventListener('click', () => {
-        const content = profileModal.querySelector('.profile-content');
-        if (content) {
-            content.style.opacity = '0';
-            content.style.transform = 'translateY(-20px)';
-        }
-        setTimeout(() => {
-            profileModal.classList.remove('active');
-        }, 300);
+        hideModal(profileModal);
     });
 }
 
+// Close modals when clicking outside
 if (profileModal) {
     profileModal.addEventListener('click', (e) => {
-        if (e.target === profileModal && closeProfile) {
-            closeProfile.click();
+        if (e.target === profileModal) {
+            hideModal(profileModal);
         }
     });
 }
-
-// Token Modal Event Listeners
-if (viewTokenBtn) viewTokenBtn.addEventListener('click', showTokenModal);
-if (closeToken) closeToken.addEventListener('click', hideTokenModal);
-if (copyTokenBtn) copyTokenBtn.addEventListener('click', copyToken);
 
 if (tokenModal) {
     tokenModal.addEventListener('click', (e) => {
@@ -164,27 +210,158 @@ if (tokenModal) {
     });
 }
 
+// Token Modal Event Listeners
+if (viewTokenBtn) viewTokenBtn.addEventListener('click', showTokenModal);
+if (closeToken) closeToken.addEventListener('click', hideTokenModal);
+if (copyTokenBtn) copyTokenBtn.addEventListener('click', copyToken);
+
 if (logoutBtn) logoutBtn.addEventListener('click', logout);
 
+// Enhanced keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (profileModal && profileModal.classList.contains('active')) {
+            hideModal(profileModal);
+        }
+        if (tokenModal && tokenModal.classList.contains('active')) {
+            hideTokenModal();
+        }
+    }
+});
+
 // Load user data when page loads
-document.addEventListener('DOMContentLoaded', loadUserData);
-
-// Add hover effect to feature cards
-const featureCards = document.querySelectorAll('.feature-card');
-featureCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
+document.addEventListener('DOMContentLoaded', () => {
+    loadUserData();
+    
+    // Enhanced animations for page elements
+    const animateElements = document.querySelectorAll('.feature-card, .stat-card, .enhanced-card, .player-card');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
     });
 });
 
-// Add active state to current nav link
-const navLinks = document.querySelectorAll('.nav-links a');
-navLinks.forEach(link => {
-    if (link.href === window.location.href) {
-        link.classList.add('active');
+// Enhanced hover effects for interactive elements
+document.addEventListener('DOMContentLoaded', () => {
+    // Add enhanced hover effects to cards
+    const cards = document.querySelectorAll('.feature-card, .enhanced-card, .player-card, .stat-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .logout-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+});
+
+// Add CSS for ripple effect
+const style = document.createElement('style');
+style.textContent = `
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
     }
-}); 
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    button {
+        position: relative;
+        overflow: hidden;
+    }
+`;
+document.head.appendChild(style);
+
+// Enhanced active nav link highlighting
+const currentPath = window.location.pathname;
+const navLinks = document.querySelectorAll('.nav-links a');
+
+navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    if (linkPath === currentPath) {
+        link.classList.add('active');
+    } else {
+        link.classList.remove('active');
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Enhanced performance monitoring
+if ('performance' in window) {
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData.loadEventEnd - perfData.loadEventStart > 3000) {
+                console.warn('Page load time is slower than expected');
+            }
+        }, 0);
+    });
+}

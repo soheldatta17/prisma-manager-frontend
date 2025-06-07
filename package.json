@@ -4,7 +4,7 @@
   "description": "A modern soccer club website",
   "main": "src/assets/js/main.js",
   "scripts": {
-    "start": "live-server --port=3000",
+    "start": "live-server --port=3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

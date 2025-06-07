@@ -4,155 +4,256 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soccer Club - Team</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .gradient-bg {
-            background: linear-gradient(45deg, #4481eb, #04befe);
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
-        }
-        .stat-number {
-            background: linear-gradient(45deg, #4481eb, #04befe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2 text-blue-600">
-                    <i class="fas fa-futbol text-2xl"></i>
-                    <span class="text-xl font-semibold">Soccer Club</span>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <a href="main.html" class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    <a href="team.html" class="text-blue-600 flex items-center space-x-1">
-                        <i class="fas fa-users"></i>
-                        <span>Team</span>
-                    </a>
-                    <a href="players.html" class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
-                        <i class="fas fa-user"></i>
-                        <span>Players</span>
-                    </a>
-                </div>
-                <div class="relative">
-                    <button id="profileBtn" class="w-10 h-10 rounded-full gradient-bg text-white flex items-center justify-center">
-                        <i class="fas fa-user"></i>
-                    </button>
+<body>
+    <!-- Enhanced Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/main.html" class="nav-brand">
+                <i class="fas fa-futbol"></i>
+                <span>Soccer Club</span>
+            </a>
+            <div class="nav-links">
+                <a href="/main.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/team.html" class="active">
+                    <i class="fas fa-users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="/players.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Players</span>
+                </a>
+            </div>
+            <div class="nav-profile" id="profileBtn">
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 pt-24">
-        <!-- Team Header -->
-        <div class="gradient-bg rounded-lg text-white text-center py-16 mb-12">
-            <h1 class="text-4xl font-bold mb-4">Our Team</h1>
-            <p class="text-xl">Meet our talented soccer team members and staff</p>
+    <!-- Enhanced Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <div class="profile-header">
+                <h2>Player Profile</h2>
+                <button class="close-btn" id="closeProfile">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="info-group">
+                    <label>Player Name</label>
+                    <p id="playerName">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Email</label>
+                    <p id="playerEmail">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Player ID</label>
+                    <p id="playerId">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Joined</label>
+                    <p id="playerJoined">Loading...</p>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Main Content -->
+    <main class="main-content">
+        <!-- Enhanced Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Team</h1>
+                <p>Meet our talented squad and dedicated coaching staff</p>
+            </div>
+        </section>
+
+        <!-- Enhanced Team Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Season Record</h3>
+                <div class="stat">15W - 3D - 2L</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-futbol"></i>
+                <h3>Goals Scored</h3>
+                <div class="stat">47</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Clean Sheets</h3>
+                <div class="stat">12</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>League Position</h3>
+                <div class="stat">1st</div>
+            </div>
         </div>
 
-        <!-- Team Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="bg-white rounded-xl p-6 shadow-md card-hover">
-                <i class="fas fa-trophy text-4xl text-blue-600 mb-4"></i>
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Season Record</h3>
-                <p class="stat-number text-3xl font-bold">12W - 3D - 2L</p>
+        <!-- Enhanced Coaching Staff Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Coaching Staff</h2>
+                <p>Our experienced team of professionals dedicated to excellence</p>
             </div>
-            <div class="bg-white rounded-xl p-6 shadow-md card-hover">
-                <i class="fas fa-futbol text-4xl text-blue-600 mb-4"></i>
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Goals Scored</h3>
-                <p class="stat-number text-3xl font-bold">34</p>
-            </div>
-            <div class="bg-white rounded-xl p-6 shadow-md card-hover">
-                <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Clean Sheets</h3>
-                <p class="stat-number text-3xl font-bold">8</p>
-            </div>
-            <div class="bg-white rounded-xl p-6 shadow-md card-hover">
-                <i class="fas fa-star text-4xl text-blue-600 mb-4"></i>
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">League Position</h3>
-                <p class="stat-number text-3xl font-bold">2nd</p>
-            </div>
-        </div>
-
-        <!-- Coaching Staff -->
-        <div class="mb-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Coaching Staff</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-                    <img src="https://placehold.co/400x300" alt="Head Coach" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">John Smith</h3>
-                        <p class="text-blue-600">Head Coach</p>
+            <div class="card-grid">
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Head Coach">
+                    <div class="card-content">
+                        <h3>John Smith</h3>
+                        <p><strong>Head Coach</strong></p>
+                        <p>15+ years of coaching experience with multiple championship titles. Former professional player with extensive tactical knowledge.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-trophy"></i> 8 Championships</span>
+                            <span><i class="fas fa-calendar"></i> Since 2018</span>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-                    <img src="https://placehold.co/400x300" alt="Assistant Coach" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Mike Johnson</h3>
-                        <p class="text-blue-600">Assistant Coach</p>
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Assistant Coach">
+                    <div class="card-content">
+                        <h3>Mike Johnson</h3>
+                        <p><strong>Assistant Coach</strong></p>
+                        <p>Specializes in player development and tactical analysis. UEFA Pro License holder with a passion for nurturing young talent.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-graduation-cap"></i> UEFA Pro</span>
+                            <span><i class="fas fa-calendar"></i> Since 2019</span>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-                    <img src="https://placehold.co/400x300" alt="Fitness Trainer" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Sarah Wilson</h3>
-                        <p class="text-blue-600">Fitness Trainer</p>
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Fitness Coach">
+                    <div class="card-content">
+                        <h3>Sarah Wilson</h3>
+                        <p><strong>Fitness & Conditioning Coach</strong></p>
+                        <p>Sports science expert focused on player fitness, injury prevention, and performance optimization through cutting-edge training methods.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-dumbbell"></i> Sports Science</span>
+                            <span><i class="fas fa-calendar"></i> Since 2020</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="enhanced-card">
+                    <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Goalkeeper Coach">
+                    <div class="card-content">
+                        <h3>David Martinez</h3>
+                        <p><strong>Goalkeeper Coach</strong></p>
+                        <p>Former professional goalkeeper with specialized training in shot-stopping techniques and goalkeeper-specific fitness programs.</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-hand-paper"></i> GK Specialist</span>
+                            <span><i class="fas fa-calendar"></i> Since 2021</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Team Formation -->
-        <div class="mb-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Current Formation</h2>
-            <div class="bg-white rounded-xl p-8 shadow-md">
-                <img src="https://placehold.co/800x400" alt="Team Formation" class="w-full rounded-lg mb-4">
-                <p class="text-center text-xl text-gray-700">4-3-3 Formation</p>
+        <!-- Enhanced Team Formation Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Current Formation</h2>
+                <p>Our tactical setup and playing style</p>
             </div>
-        </div>
+            <div class="enhanced-card" style="max-width: 800px; margin: 0 auto;">
+                <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Team Formation" style="height: 400px;">
+                <div class="card-content" style="text-align: center;">
+                    <h3>4-3-3 Formation</h3>
+                    <p>Our preferred formation emphasizes attacking play with strong midfield control. This setup allows for quick transitions and creative attacking movements while maintaining defensive stability.</p>
+                    <div class="card-meta" style="justify-content: center;">
+                        <span><i class="fas fa-chart-line"></i> 78% Win Rate</span>
+                        <span><i class="fas fa-futbol"></i> 2.4 Goals/Game</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Achievements -->
-        <div class="bg-white rounded-xl p-8 shadow-md mb-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Recent Achievements</h2>
-            <ul class="space-y-4">
-                <li class="flex items-center space-x-4 p-4 border-b border-gray-100">
-                    <i class="fas fa-medal text-2xl text-blue-600"></i>
-                    <span class="text-lg text-gray-700">Regional Cup Winners 2023</span>
-                </li>
-                <li class="flex items-center space-x-4 p-4 border-b border-gray-100">
-                    <i class="fas fa-trophy text-2xl text-blue-600"></i>
-                    <span class="text-lg text-gray-700">League Runners-up 2023</span>
-                </li>
-                <li class="flex items-center space-x-4 p-4 border-b border-gray-100">
-                    <i class="fas fa-award text-2xl text-blue-600"></i>
-                    <span class="text-lg text-gray-700">Best Team Performance 2023</span>
-                </li>
-                <li class="flex items-center space-x-4 p-4">
-                    <i class="fas fa-star text-2xl text-blue-600"></i>
-                    <span class="text-lg text-gray-700">Most Clean Sheets 2023</span>
-                </li>
-            </ul>
-        </div>
+        <!-- Enhanced Team Philosophy Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Team Philosophy</h2>
+                <p>Our core values and playing principles</p>
+            </div>
+            <div class="card-grid">
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Passion</h3>
+                    <p>We play with heart and dedication, giving our all in every match and training session.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Teamwork</h3>
+                    <p>Success comes through unity, communication, and supporting each other on and off the field.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-target"></i>
+                    <h3>Excellence</h3>
+                    <p>We strive for continuous improvement and maintain the highest standards in everything we do.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Fair Play</h3>
+                    <p>We compete with integrity, respect our opponents, and uphold the spirit of the beautiful game.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Achievements Section -->
+        <section class="content-section">
+            <div class="section-title">
+                <h2>Recent Achievements</h2>
+                <p>Our proud moments and accomplishments</p>
+            </div>
+            <div class="enhanced-card">
+                <div class="card-content">
+                    <ul class="achievements-list">
+                        <li>
+                            <i class="fas fa-medal"></i>
+                            <span>Regional Championship Winners 2024</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-trophy"></i>
+                            <span>League Champions 2023</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-award"></i>
+                            <span>Best Team Performance Award 2023</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-star"></i>
+                            <span>Most Goals Scored in Season 2023</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Best Defensive Record 2022</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>Fair Play Award 2022</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
 </body>
-</html> 
+</html>
