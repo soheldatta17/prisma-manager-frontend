@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Club - Home</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-futbol"></i>
+            <span>Soccer Club</span>
+        </div>
+        <div class="nav-links">
+            <a href="/main.html" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="/team.html"><i class="fas fa-users"></i> Team</a>
+            <a href="/players.html"><i class="fas fa-user"></i> Players</a>
+        </div>
+        <div class="nav-profile" id="profileBtn">
+            <div class="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <div class="profile-header">
+                <h2>Player Profile</h2>
+                <button class="close-btn" id="closeProfile">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="info-group">
+                    <label>Player Name</label>
+                    <p id="playerName">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Email</label>
+                    <p id="playerEmail">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Player ID</label>
+                    <p id="playerId">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Joined</label>
+                    <p id="playerJoined">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <label>Access Token</label>
+                    <div class="token-container">
+                        <p id="playerToken">••••••••••••••••</p>
+                        <button class="token-view-btn" id="viewTokenBtn">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Token Modal -->
+    <div class="token-modal" id="tokenModal">
+        <div class="token-content">
+            <div class="token-header">
+                <h3>Access Token</h3>
+                <button class="close-btn" id="closeToken">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="token-body">
+                <div class="token-display">
+                    <code id="tokenText"></code>
+                </div>
+                <button class="copy-btn" id="copyTokenBtn">
+                    <i class="fas fa-copy"></i> Copy Token
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Welcome to Soccer Club</h1>
+            <p>Your journey to soccer excellence starts here</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Upcoming Matches</h3>
+                <p>View and register for upcoming matches</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Team Stats</h3>
+                <p>Check your team's performance</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Tournaments</h3>
+                <p>Join exciting tournaments</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-running"></i>
+                <h3>Training</h3>
+                <p>Access training schedules</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html> 
