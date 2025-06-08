@@ -120,7 +120,7 @@ signUpForm.addEventListener("submit", async (e) => {
     });
     
     try {
-        const response = await fetch('http://localhost:3000/v1/auth/signup', {
+        const response = await fetch('https://soccer-prisma-backend.vercel.app/v1/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ signInForm.addEventListener("submit", async (e) => {
     });
     
     try {
-        const response = await fetch('http://localhost:3000/v1/auth/signin', {
+        const response = await fetch('https://soccer-prisma-backend.vercel.app/v1/auth/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
