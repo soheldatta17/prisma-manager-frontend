@@ -297,7 +297,86 @@ body {
 }
 
 /* Enhanced Modals */
-.profile-modal,
+
+/* Profile Modal Styles */
+/* Profile Modal Styles */
+.profile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.profile-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.profile-content {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: var(--border-radius-xl);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: scroll; /* Always show scrollbar */
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-light);
+    
+    /* Firefox Scrollbar */
+    scrollbar-width: auto;
+    scrollbar-color: rgba(100, 100, 100, 0.6) transparent;
+}
+
+/* WebKit Scrollbar Styling */
+.profile-content::-webkit-scrollbar {
+    width: 12px; /* Thicker */
+}
+
+.profile-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.profile-content::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.6);
+    border-radius: 6px;
+    min-height: 40px; /* Shorter thumb */
+}
+
+.profile-modal.active .profile-content {
+    transform: translateY(0) scale(1);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.profile-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+
+/* Token Modal Styles */
 .token-modal {
     position: fixed;
     top: 0;
@@ -315,13 +394,11 @@ body {
     transition: opacity var(--transition-normal);
 }
 
-.profile-modal.active,
 .token-modal.active {
     display: flex;
     opacity: 1;
 }
 
-.profile-content,
 .token-content {
     background: var(--bg-primary);
     padding: 3rem;
@@ -335,12 +412,10 @@ body {
     border: 1px solid var(--border-light);
 }
 
-.profile-modal.active .profile-content,
 .token-modal.active .token-content {
     transform: translateY(0) scale(1);
 }
 
-.profile-header,
 .token-header {
     display: flex;
     justify-content: space-between;
@@ -350,12 +425,12 @@ body {
     border-bottom: 1px solid var(--border-light);
 }
 
-.profile-header h2,
 .token-header h3 {
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--text-primary);
 }
+
 
 .close-btn {
     background: none;

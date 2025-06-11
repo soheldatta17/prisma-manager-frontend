@@ -73,12 +73,13 @@ const showError = (message) => {
 
 // Handle successful authentication
 function handleAuthSuccess(data, isSignUp = true) {
+    console.log("Data is see see ", data);
     const userData = {
-        userId: data.content.data.id,
-        name: data.content.data.name,
-        email: data.content.data.email,
-        createdAt: data.content.data.created_at,
-        token: data.content.meta.access_token
+        userId: data.data.id,
+        name: data.data.name,
+        email: data.data.email,
+        createdAt: data.data.created_at,
+        token: data.meta.access_token
     };
 
     // Set cookie with user data (expires in 7 days)
@@ -133,20 +134,21 @@ signUpForm.addEventListener("submit", async (e) => {
         });
 
         const data = await response.json();
-        
-        console.log('📥 API Response:', {
-            status: response.status,
-            statusText: response.statusText,
-            headers: Object.fromEntries(response.headers.entries()),
-            data: data
-        });
+        const userData123 = {
+            userId: data.data.id,
+            name: data.data.name,
+            email: data.data.email,
+            createdAt: data.data.created_at,
+            token: data.meta.access_token
+        };
+    
+        console.log("Data is ", data);
+        console.log("User Data is ", userData123);
 
-        if (!response.ok) {
-            throw new Error(data.message || 'Something went wrong!');
-        }
-
-        if (data.status && data.content.meta.access_token) {
+        if (data) {
+            console.log(1);
             handleAuthSuccess(data, true);
+            console.log(2);
             signUpForm.reset();
         } else {
             throw new Error('Invalid response format');
